@@ -16,11 +16,11 @@ class TwitchDinner:
 
         self.strings = ["You should eat ", "How about ", "Get some ", "Go eat ", "Consume this "]
         self.recipe = None
-        
+
         # Fill previously initialised variables with data from the settings.txt file
         Settings(self)
 
-        self.ws = TwitchWebsocket(host=self.host, 
+        self.ws = TwitchWebsocket(host=self.host,
                                   port=self.port,
                                   chan=self.chan,
                                   nick=self.nick,
@@ -29,7 +29,7 @@ class TwitchDinner:
                                   capability=["membership", "tags", "commands"],
                                   live=True)
         self.ws.start_bot()
-        
+
     def set_settings(self, host, port, chan, nick, auth):
         self.host = host
         self.port = port
@@ -41,9 +41,9 @@ class TwitchDinner:
         try:
             if m.type == "366":
                 logging.info(f"Successfully joined channel: #{m.channel}")
-            
+
             elif m.type == "PRIVMSG":
-                if m.message.startswith(("!food", "!suggest", "!dinner", "!foodmedaddy")):
+                if m.message.startswith((!suggest", "!foodme")):
                     out = self.query_site()
                     self.ws.send_message(out)
                     logging.info(out)
@@ -58,7 +58,7 @@ class TwitchDinner:
 
         except Exception as e:
             logging.exception(e)
-    
+
     def query_site(self):
         # Get raw HTML etc from website
         self.data = requests.get("http://www.whatthefuckshouldimakefordinner.com/").text
