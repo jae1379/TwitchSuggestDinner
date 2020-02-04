@@ -1,7 +1,7 @@
 {
     "Host": "irc.chat.twitch.tv",
     "Port": 6667,
-    "Channel": "#<channel>",
-    "Nickname": "<name>",
-    "Authentication": "oauth:<auth>"
+    "Channel": "#jae1379",
+    "Nickname": "jayaibot",
+    "Authentication": "oauth:q2raxsjuxk4f2ttbly00jiwm4pcfxa"
 }
