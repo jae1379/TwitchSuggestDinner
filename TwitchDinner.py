@@ -43,7 +43,7 @@ class TwitchDinner:
                 logging.info(f"Successfully joined channel: #{m.channel}")
 
             elif m.type == "PRIVMSG":
-                if m.message.startswith((!suggest", "!foodme")):
+                if m.message.startswith(("!suggest", "!foodme")):
                     out = self.query_site()
                     self.ws.send_message(out)
                     logging.info(out)
